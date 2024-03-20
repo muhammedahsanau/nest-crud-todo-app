@@ -21,7 +21,7 @@ export class UserController {
         name: 'ahsan',
       },
       2: {
-        name: 'wali',
+        name: 'walii',
       },
     };
     return JSON.stringify(users[params.id]);
