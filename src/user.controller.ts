@@ -6,6 +6,8 @@ import {
   Get,
   Redirect,
   Param,
+  HttpException,
+  HttpStatus,
 } from '@nestjs/common';
 
 @Controller('user')
@@ -24,6 +26,9 @@ export class UserController {
         name: 'walii',
       },
     };
+    if (!users[params.id]) {
+      throw new HttpException('User does not exist!!!', HttpStatus.BAD_REQUEST);
+    }
     return JSON.stringify(users[params.id]);
   }
 
